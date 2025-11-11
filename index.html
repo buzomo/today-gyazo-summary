@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Gyazoから今日をふりかえる</title>
+    <title>Gyazoから今日をふりかえる</title>
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E📷%3C/text%3E%3C/svg%3E" type="image/svg+xml">
     <style>
         :root {
@@ -104,12 +104,28 @@
             gap: 10px;
             margin-bottom: 20px;
         }
+        .github-link {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            color: var(--secondary);
+            text-decoration: none;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+        }
+        .github-link:hover {
+            color: var(--primary);
+        }
+        .github-icon {
+            margin-right: 5px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Gyazoから今日をふりかえる</h1>
-      <p>Gyazoの<a href="https://gyazo.com/api/docs?lang=ja">アクセストークン</a>を入力し、ボタンを押すと、<br>指定日のスクリーンショットのOCR情報を自動で取得・整理し、Le Chatに送信します。<br>トークンは端末内に残り、Gyazo以外には送信されません。</p>
+        <p>Gyazoの<a href="https://gyazo.com/api/docs?lang=ja">アクセストークン</a>を入力し、ボタンを押すと、<br>指定日のスクリーンショットのOCR情報を自動で取得・整理し、Le Chatに送信します。<br>トークンは端末内に残り、Gyazo以外には送信されません。</p>
         <div class="token-input" id="tokenInputArea">
             <label for="token">Gyazo Access Token:</label>
             <input type="text" id="token" placeholder="Gyazoのアクセストークンを入力してください">
@@ -127,6 +143,10 @@
         <div id="results"></div>
     </div>
     <div class="change-token" onclick="showTokenInput()">トークンを変更</div>
+    <a href="https://github.com/buzomo/today-gyazo-summary" class="github-link" target="_blank" rel="noopener noreferrer">
+        <span class="github-icon">🐙</span>
+        GitHubリポジトリ
+    </a>
     <script>
         // LocalStorageからトークンを読み込む
         const savedToken = localStorage.getItem('gyazoToken');
@@ -224,7 +244,7 @@
                 return;
             }
             const text = encodeURIComponent(resultsDiv.textContent);
-            window.open(`https://chat.mistral.ai/chat?q=今から、今日取得したスクリーンショットの詳細情報を送るので「今日は何をしようとしていたか」を400文字程度にまとめてください。クリップボードにすでにデータがあるので、それを貼り付けるよう私に促してください。`, '_blank');
+            window.open(`https://chat.mistral.ai/chat?q=今から、取得したスクリーンショットの詳細情報を送るので「その日は何をしようとしていたか」を400文字程度にまとめてください。クリップボードにすでにデータがあるので、それを貼り付けるよう私に促してください。`, '_blank');
         }
     </script>
 </body>
