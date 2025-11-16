@@ -125,11 +125,11 @@
 <body>
     <div class="container">
         <h1>Gyazoから今日をふりかえる</h1>
-        <p>Gyazoの<a href="https://gyazo.com/api/docs?lang=ja">アクセストークン</a>を入力し、ボタンを押すと、<br>指定日のスクリーンショットのOCR情報を自動で取得・整理し、Le Chatに送信します。<br>トークンは端末内に残り、Gyazo以外には送信されません。</p>
+        <p>Gyazoの<a href="https://gyazo.com/api/docs?lang=ja">アクセストークン</a>を入力し、ボタンを押すと、<br>指定日のスクリーンショットのOCR情報を自動で取得・整理し、Le Chatに送信します。<br>アクセストークンは端末内に残り、Gyazo以外には送信されません。</p>
         <div class="token-input" id="tokenInputArea">
             <label for="token">Gyazo Access Token:</label>
             <input type="text" id="token" placeholder="Gyazoのアクセストークンを入力してください">
-            <button onclick="saveToken()">トークンを保存</button>
+            <button onclick="saveToken()">アクセストークンを保存</button>
         </div>
         <div class="button-group">
             <button onclick="fetchAndProcess(0)">今日</button>
